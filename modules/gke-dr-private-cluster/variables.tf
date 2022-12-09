@@ -134,6 +134,16 @@ variable "node_auto_upgrade" {
   default = false
 }
 
+variable "autoscaling_min_node_count" {
+  type = number
+  description = "Minimum number of nodes per zone in node pool"
+}
+
+variable "autoscaling_max_node_count" {
+  type = number
+  description = "Maximum number of nodes per zone in node pool"
+}
+
 variable "node_pool_disk_type" {
   type = string
   description = "Type of disk attached to each node in the node pool"
