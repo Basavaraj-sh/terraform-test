@@ -1,6 +1,6 @@
 terraform {
  backend "gcs" {
-   bucket                      = ""
+   bucket                      = "gke-dr-clean-test"
    prefix                      = "terraform/dr-lb/state"
  }
 }
