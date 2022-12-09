@@ -1,8 +1,3 @@
-##### Service account for terraform script execution ######
-## Provide service account email. Ex "YOUR_SERVICE_ACCOUNT@YOUR_PROJECT.iam.gserviceaccount.com"
-
-tf_service_account = "tf-gke-dr-svc-account@k8s-exp-367504.iam.gserviceaccount.com"
-
 ############## Variables for network creation #############
 project_id     = "k8s-exp-367504"
 
