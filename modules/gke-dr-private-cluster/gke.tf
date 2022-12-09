@@ -106,11 +106,6 @@ resource "google_container_node_pool" "node-pool" {
     )
   }
 
-  autoscaling {
-    min_node_count = var.autoscaling_min_node_count
-    max_node_count = var.autoscaling_max_node_count
-  }
-
   management {
     auto_repair  = var.node_auto_repair 
     auto_upgrade = var.node_auto_upgrade

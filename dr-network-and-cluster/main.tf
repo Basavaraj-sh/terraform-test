@@ -31,7 +31,7 @@ module "gke-dr-pri-cluster-1" {
   cluster_version         = var.cluster_version
   machine_type            = var.cluster1_machine_type
   autoscaling_min_node_count  = var.autoscaling_min_node_count
-  autoscaling_max_node_count  = var.autoscaling_max_node_count
+  autoscaling_max_node_count  = var.autoscaling_max_node_count  
 
   control_plane_ip_range      = var.cluster1_control_plane_ip_range
   enable_master_global_access = var.enable_master_global_access

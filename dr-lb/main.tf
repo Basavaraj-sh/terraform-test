@@ -226,4 +226,3 @@ resource "google_compute_global_forwarding_rule" "default-internal-redirect" {
     target                = google_compute_target_http_proxy.target-http-proxy-internal.id
     ip_address            = var.global_lb_ip_internal
 }
-

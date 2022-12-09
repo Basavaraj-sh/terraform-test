@@ -1,14 +1,19 @@
+##### Service account for terraform script execution ######
+## Provide service account email. Ex "YOUR_SERVICE_ACCOUNT@YOUR_PROJECT.iam.gserviceaccount.com"
+
+#tf_service_account = "tf-gke-dr-svc-account@k8s-exp-367504.iam.gserviceaccount.com"
+
 ############## Variables for network creation #############
-project_id     = ""
+project_id     = "k8s-exp-367504"
 
-network_name   = ""
+network_name   = "thd-network"
 
-subnet1_name   = ""
-region_1       = ""
+subnet1_name   = "thd-subnet1"
+region_1       = "asia-south1"
 subnet1_cidr   = "10.1.0.0/16"
 
-subnet2_name   = ""
-region_2       = ""
+subnet2_name   = "thd-subnet2"
+region_2       = "asia-south2"
 subnet2_cidr   = "10.2.0.0/16"
 
 # Prefix used in the names of all the network resorces created for DR setup
@@ -20,9 +25,9 @@ enable_master_global_access = false
 enable_backup_agent = true
 
 ############# Variables for Primaryg Cluster################
-cluster1_name                   = ""
-cluster1_location               = ""
-cluster1_node_locations         = []
+cluster1_name                   = "test-primary"
+cluster1_location               = "asia-south1"
+cluster1_node_locations         = ["asia-south1-a"]
 cluster1_control_plane_ip_range = "172.16.0.0/28"
 cluster1_node_count             = 1
 cluster1_machine_type           = "e2-standard-4"
@@ -31,9 +36,9 @@ cluster1_node_labels            = {
 }
 
 ############# Variables for Secendary Cluster################
-cluster2_name                   = ""
-cluster2_location               = ""
-cluster2_node_locations         = []
+cluster2_name                   = "test-secondary"
+cluster2_location               = "asia-south2"
+cluster2_node_locations         = ["asia-south2-a"]
 cluster2_control_plane_ip_range = "172.17.0.0/28"
 cluster2_node_count             = 1
 cluster2_machine_type           = "e2-standard-4"
@@ -71,11 +76,11 @@ master_authorized_networks_cidr_blocks = [
 create_backup_restore_plan = true
 
 # Names Must use lowercase letters, numbers, and hyphens and start with letter
-pri_to_sec_backup_plan_name = ""
-sec_to_pri_backup_plan_name = ""
+pri_to_sec_backup_plan_name = "pts-bkp"
+sec_to_pri_backup_plan_name = "stp-bkp"
 
-pri_to_sec_restore_plan_name = ""
-sec_to_pri_restore_plan_name = ""
+pri_to_sec_restore_plan_name = "pts-rest"
+sec_to_pri_restore_plan_name = "stp-rest"
 
 # List protected application names for which backup/restore plan
 # has to be created

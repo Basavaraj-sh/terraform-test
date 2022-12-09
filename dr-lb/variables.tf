@@ -1,7 +1,3 @@
-variable "tf_service_account" {
-  description = "Service account with required permissions for running terraform code. This service account will be impersonated by the user account"
-}
-
 variable "gke-dr-prefix" {
   description = "prefix to identify GKE DR setup resourcess"
   default = "thd-gkedr"

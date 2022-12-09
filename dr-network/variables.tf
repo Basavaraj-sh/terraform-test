@@ -1,8 +1,3 @@
-# Service accont email id for service account impersonation
-variable "tf_service_account" {
-  description = "Service account with required permissions for running terraform code. This service account will be impersonated by the user account"
-}
-
 variable "project_id" {
   description = "project id"
   default = ""

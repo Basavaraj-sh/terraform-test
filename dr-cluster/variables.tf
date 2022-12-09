@@ -1,7 +1,3 @@
-#variable "tf_service_account" {
-#  description = "Service account with required permissions for running terraform code. This service account will be impersonated by the user account"
-#}
-
 variable "project_id" {
   description = "project id"
   default = ""
@@ -83,6 +79,7 @@ variable "node_pool_oauth_scopes" {
              "https://www.googleapis.com/auth/devstorage.full_control",
              ]
 }
+
 variable "autoscaling_min_node_count" {
   type = number
   description = "Minimum number of nodes per zone in node pool"
