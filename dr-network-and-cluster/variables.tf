@@ -225,3 +225,7 @@ variable "backup_retain_days" {
   type = number
   description = "Number of days backups needs to be retained"
 }
+
+variable "backup_frequency_cron" {
+  description = "Cron schedule for application backup"
+}

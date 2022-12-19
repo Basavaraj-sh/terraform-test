@@ -83,3 +83,5 @@ sec_to_pri_restore_plan_name = "stp-rest"
 applications = ["dr-primary/elasticsearch-backup","dr-primary/rabbit-mq-backup"]
 
 backup_retain_days = 1
+
+backup_frequency_cron = "*/30 * * * *"

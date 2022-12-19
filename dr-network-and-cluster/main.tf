@@ -68,7 +68,7 @@ resource "null_resource" "create-pri-to-sec-backup-plan" {
  count = var.create_backup_restore_plan ? 1 : 0
  provisioner "local-exec" {
 
-   command = "gcloud beta container backup-restore backup-plans create ${var.pri_to_sec_backup_plan_name} --project=${var.project_id} --location=${var.cluster2_location} --cluster=projects/${var.project_id}/locations/${var.cluster1_location}/clusters/${var.cluster1_name} --selected-applications=${local.applications_string} --include-secrets --include-volume-data --backup-retain-days=${var.backup_retain_days}"
+   command = "gcloud beta container backup-restore backup-plans create ${var.pri_to_sec_backup_plan_name} --project=${var.project_id} --location=${var.cluster2_location} --cluster=projects/${var.project_id}/locations/${var.cluster1_location}/clusters/${var.cluster1_name} --selected-applications=${local.applications_string} --include-secrets --include-volume-data --backup-retain-days=${var.backup_retain_days} --cron-schedule=${var.backup_frequency_cron}"
   }
 
   depends_on = [module.gke-dr-pri-cluster-1]
@@ -88,7 +88,7 @@ resource "null_resource" "create-sec-to-pri-backup-plan" {
  count = var.create_backup_restore_plan ? 1 : 0
  provisioner "local-exec" {
 
-    command = "gcloud beta container backup-restore backup-plans create ${var.sec_to_pri_backup_plan_name} --project=${var.project_id} --location=${var.cluster1_location} --cluster=projects/${var.project_id}/locations/${var.cluster2_location}/clusters/${var.cluster2_name} --selected-applications=${local.applications_string} --include-secrets --include-volume-data --backup-retain-days=${var.backup_retain_days}"
+    command = "gcloud beta container backup-restore backup-plans create ${var.sec_to_pri_backup_plan_name} --project=${var.project_id} --location=${var.cluster1_location} --cluster=projects/${var.project_id}/locations/${var.cluster2_location}/clusters/${var.cluster2_name} --selected-applications=${local.applications_string} --include-secrets --include-volume-data --backup-retain-days=${var.backup_retain_days} --cron-schedule=${var.backup_frequency_cron}"
   }
 
   depends_on = [module.gke-dr-pri-cluster-2]
